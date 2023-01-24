@@ -5,7 +5,10 @@
     {% for row in rows %}
       <li>
         <div class="msg">
-          {{ row | dump }}
+          {{ row.title | dump }}
+          {{ row.content | dump }}
+          {{ row.createdAt | dump }}
+          {{ row.AuthorId | dump }}
         </div>
       </li>
     {% endfor %}
