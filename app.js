@@ -14,6 +14,7 @@ nunjucks.configure('views', {
 });
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static('public'));
 app.use('/', indexRouter);
 
 app.listen(port, () => {

@@ -1,11 +1,15 @@
 {% extends "layout.njk" %}
 {% block  content %}
-<h1>Rasmus databassida</h1>
-<ul>
-  {% for row in rows %}
-    <li>
-      {{ row | dump }}
-    </li>
-  {% endfor %}
-</ul>
+<div class="container">
+  <ul>
+    {% for row in rows %}
+      <li>
+        <div class="msg">
+          {{ row | dump }}
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="/new">Posta</a>
+</div>
 {% endblock %}

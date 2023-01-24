@@ -1,0 +1,51 @@
+@use "reset";
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+nav {
+    background-color: hsl(0, 0%, 90%);
+    top: 0;
+    padding: 1rem;
+    position: sticky;
+    > .container > .title {
+        display: flex;
+        justify-content: center;
+    }
+    > .container > .title > a {
+        width: fit-content;
+        font-size: larger;
+        font-weight: bolder;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.msg {
+    padding: 1rem;
+    background-color: hsl(0, 0%, 70%);
+}
+
+.msg:hover {
+    background-color: hsl(0, 0%, 80%);
+    cursor: pointer;
+}
+
+.container {
+    width: min(100ch, 100vw - 2rem);
+    margin-inline: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
