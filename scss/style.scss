@@ -1,27 +1,46 @@
 @use "reset";
 
 body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: hsl(0, 0%, 85%);
 }
 
 nav {
     background-color: hsl(0, 0%, 90%);
     top: 0;
-    padding: 1rem;
     position: sticky;
-    > .container > .title {
+    > .container > ul {
         display: flex;
+        flex-direction: row;
         justify-content: center;
+        align-items: center;
+        width: 100%;
     }
-    > .container > .title > a {
-        width: fit-content;
+    > .container > ul > li:first-child {
+        margin-right: auto;
+    }
+    > .container > ul > li > a {
+        padding: 1.5rem;
+        display: inline-block;
+    }
+    > .container > ul > li > .item:hover {
+        background-color: hsl(0, 0%, 80%);
+    }
+    > .container > ul > li > .title {
         font-size: larger;
         font-weight: bolder;
-        display: block;
-        text-align: center;
+        padding: 0%;
+    }
+    > .container > ul > li > a {
         text-decoration: none;
         color: black;
     }
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 ul {
@@ -32,12 +51,32 @@ ul {
 
 .msg {
     padding: 1rem;
-    background-color: hsl(0, 0%, 70%);
+    background-color: hsl(0, 0%, 80%);
+    display: flex;
+    flex-direction: column;
 }
 
 .msg:hover {
-    background-color: hsl(0, 0%, 80%);
+    background-color: hsl(0, 0%, 85%);
     cursor: pointer;
+}
+
+.msg-title {
+    font-weight: bolder;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    > p:first-child {
+        margin-right: auto;
+    }
+}
+
+.msg-content {
+    font-weight: normal;
+}
+
+.msg-hidden {
+    display: none;
 }
 
 .container {

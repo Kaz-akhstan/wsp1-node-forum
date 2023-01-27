@@ -28,16 +28,16 @@ router.get('/new', async function (req, res, next) {
 })
 
 router.post('/new', async function (req, res, next){
-    const { authorId, title, content } = req.body
-    let user = await promisePool.query('SELECT * FROM rj28users WHERE name = ?', [authorId])
+    const { AuthorId, title, content } = req.body
+    let user = await promisePool.query('SELECT * FROM rj28users WHERE name = ?', [AuthorId])
     if(!user)
     {
-        user = await promisePool.query('INSERT INTO rj28users (name) VALUES (?)', [authorId])
+        user = await promisePool.query('INSERT INTO rj28users (name) VALUES (?)', [AuthorId])
     }
-    const userId = user.insertId || user[0].id;
-    console.log(user.insertId)
+    console.log(user)
+    const userId = user.insertId || user[0][0].id
 
-    const [rows] = await promisePool.query("INSERT INTO rj28forum (authorId, title, content) VALUES (?, ?, ?)", [userId, title, content])
+    const [rows] = await promisePool.query("INSERT INTO rj28forum (AuthorId, title, content) VALUES (?, ?, ?)", [userId, title, content])
     res.redirect('/')
 })
 

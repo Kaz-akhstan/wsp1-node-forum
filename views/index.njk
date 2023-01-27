@@ -5,14 +5,17 @@
     {% for row in rows %}
       <li>
         <div class="msg">
-          {{ row.title | dump }}
-          {{ row.content | dump }}
-          {{ row.createdAt | dump }}
-          {{ row.AuthorId | dump }}
+          <div class="msg-title">
+            <p>{{ row.title | dump }}</p>
+            <p>{{ row.AuthorId | dump }}</p>
+          </div>
+          <div class="msg-content">
+            <p>{{ row.content | dump }}</p>
+            <p>{{ row.createdAt | dump }}</p>
+          </div>
         </div>
       </li>
     {% endfor %}
   </ul>
-  <a href="/new">Posta</a>
 </div>
 {% endblock %}
