@@ -10,9 +10,16 @@ const pool = mysql.createPool({
 })
 const promisePool = pool.promise()
 
+router.get('/post', async function (req, res, next) {
+    const [rows] = await promisePool.query('SELECT rj28forum.*, rj28users.name FROM rj28forum JOIN rj28users ON rj28forum.AuthorId = rj28users.id')
+    res.render('post.njk', {
+        rows: rows,
+        title: 'Forum',
+    })
+})
 
 router.get('/', async function (req, res, next) {
-    const [rows] = await promisePool.query('SELECT * FROM rj28forum')
+    const [rows] = await promisePool.query('SELECT rj28forum.*, rj28users.name FROM rj28forum JOIN rj28users ON rj28forum.AuthorId = rj28users.id')
     res.render('index.njk', {
         rows: rows,
         title: 'Forum',

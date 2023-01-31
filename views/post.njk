@@ -1,0 +1,15 @@
+{% extends "layout.njk" %}
+{% block  content %}
+{% for row in rows %}
+    <div class="msg">
+        <div class="msg-title">
+            <p>{{ row.title }}</p>
+            <p>{{ row.AuthorId }}</p>
+        </div>
+        <div class="msg-content">
+            <p>{{ row.content }}</p>
+            <p>{{ row.createdAt }}</p>
+        </div>
+    </div>-
+{% endfor %}
+{% endblock %}
