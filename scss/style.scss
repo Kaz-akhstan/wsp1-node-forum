@@ -5,46 +5,6 @@ body {
     background-color: hsl(0, 0%, 85%);
 }
 
-nav {
-    background-color: #252525;
-    top: 0;
-    position: sticky;
-    margin-bottom: .25rem;
-    > .container > ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-    > .container > ul > li:first-child {
-        margin-right: auto;
-    }
-    > .container > ul > li > a {
-        padding: 1.5rem;
-        display: inline-block;
-    }
-    > .container > ul > li > .item:hover {
-        background-color: hsl(0, 0%, 85%);
-        color: #252525;
-    }
-    > .container > ul > li > .title {
-        font-size: larger;
-        font-weight: bolder;
-        padding: 0%;
-    }
-    > .container > ul > li > a {
-        text-decoration: none;
-        color: white;
-    }
-}
-
-.navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 ul {
     list-style: none;
     display: flex;
@@ -87,6 +47,17 @@ ul {
 
 .msg-content {
     font-weight: normal;
+    max-height: 10rem;
+    overflow: hidden;
+}
+
+.msg-content-all {
+    max-height: fit-content;
+    overflow: auto;
+}
+
+.msg-date {
+    font-style: italic;
 }
 
 .msg-hidden {

@@ -6,18 +6,18 @@
       <li>
         <div class="msg">
           <div class="msg-title">
-            <p>{{ row.title }}</p>
+            <p><a href="/post/{{ row.id }}">{{ row.title }}</a></p>
             <p>@{{ row.name }}</p>
           </div>
           <div class="msg-content">
             <p>{{ row.content }}</p>
-            <p>{{ row.createdAt }}</p>
-            <div class="msg-links">
-              <a href="">Like</a>
-              <a href="">Comment</a>
-              <a href="">Share</a>
-              <a href="">Report</a>
-            </div>
+          </div>
+          <p class="msg-date">{{ row.createdAt }}</p>
+          <div class="msg-links">
+            <a href="">Like</a>
+            <a href="">Comment</a>
+            <a href="">Share</a>
+            <a href="">Report</a>
           </div>
         </div>
       </li>

@@ -10,12 +10,13 @@ const pool = mysql.createPool({
 })
 const promisePool = pool.promise()
 
-router.get('/post', async function (req, res, next) {
-    const [rows] = await promisePool.query('SELECT rj28forum.*, rj28users.name FROM rj28forum JOIN rj28users ON rj28forum.AuthorId = rj28users.id')
+router.get('/post/:id', async function (req, res) {
+    console.log(req.params.id)
+    const [rows] = await promisePool.query('SELECT rj28forum.*, rj28users.name AS username FROM rj28forum JOIN rj28users ON rj28forum.AuthorId = rj28users.id WHERE rj28forum.id = ?', [req.params.id])
     res.render('post.njk', {
-        rows: rows,
+        post: rows[0],
         title: 'Forum',
-    })
+    });
 })
 
 router.get('/', async function (req, res, next) {
@@ -41,7 +42,6 @@ router.post('/new', async function (req, res, next){
     {
         user = await promisePool.query('INSERT INTO rj28users (name) VALUES (?)', [AuthorId])
     }
-    console.log(user)
     const userId = user.insertId || user[0][0].id
 
     const [rows] = await promisePool.query("INSERT INTO rj28forum (AuthorId, title, content) VALUES (?, ?, ?)", [userId, title, content])
